@@ -16,6 +16,8 @@
     // 删除下载提示条
     const d = document.getElementsByTagName('client-download-guide')[0]
     d.parentNode.removeChild(d)
+    // 减小顶部高度
+    document.getElementById('header').style.marginTop = '-18px'
     // 修改背景色
     const meta = document.createElement('meta')
     meta.name = "theme-color"
@@ -33,5 +35,5 @@
       return '别关，关了还要重新扫码！'
     }
   }, 200)
-  
+
 })();
