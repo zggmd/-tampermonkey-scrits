@@ -43,6 +43,16 @@
     elem.dispatchEvent(new Event('input'));
     await delay({timeout: 2000})
     document.getElementsByClassName('dropdown-menu-user-full-name')[0].click()
+
+    // Enter键绑定提交按钮
+    document.onkeydown = () => {
+      if (window.event.keyCode === 13) {
+        if (window.confirm("确定提交 Merge Request 吗？")) {
+          document.querySelector('input[type="submit"][name="commit"]').click()
+        }
+        return
+      }
+    }
   }
   autoSetAssignee()
 })();
