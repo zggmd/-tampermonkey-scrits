@@ -21,9 +21,9 @@
     meta.name = "theme-color"
     meta.content="#008cee"
     document.getElementsByTagName('head')[0].appendChild(meta)
-    // command+Enter 发送消息
+    // macOS下，绑定 command+Enter 发送消息
     document.onkeydown = () => {
-      if (window.event.metaKey && window.event.keyCode === 13) {
+      if (/macintosh|mac os x/i.test(navigator.userAgent) && window.event.metaKey && window.event.keyCode === 13) {
         document.getElementsByClassName('send-message-button')[0].click()
         return
       }
