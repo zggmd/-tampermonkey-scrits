@@ -30,7 +30,7 @@
     }
     // 防止误关闭窗口
     window.onbeforeunload = event => {
-      return '您可能有数据没有保存'
+      return '别关，关了还要重新扫码！'
     }
   }, 200)
   
