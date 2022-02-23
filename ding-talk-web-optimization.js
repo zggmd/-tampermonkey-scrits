@@ -23,13 +23,22 @@
     meta.name = "theme-color"
     meta.content="#008cee"
     document.getElementsByTagName('head')[0].appendChild(meta)
-    // macOS下，绑定 command+Enter 发送消息
-    document.onkeydown = () => {
-      if (/macintosh|mac os x/i.test(navigator.userAgent) && window.event.metaKey && window.event.keyCode === 13) {
+    // macOS下
+    if (/macintosh|mac os x/i.test(navigator.userAgent)) {
+      document.onkeydown = () => {
+      // 绑定 command+Enter 发送消息
+      if (window.event.metaKey && window.event.keyCode === 13) {
         document.getElementsByClassName('send-message-button')[0].click()
         return
       }
+      // command+F阻止浏览器的默认搜索
+      if (window.event.metaKey && window.event.keyCode === 70) {
+        window.event.preventDefault();
+        return
+      }
     }
+    }
+
     // 防止误关闭窗口
     window.onbeforeunload = event => {
       return '别关，关了还要重新扫码！'
